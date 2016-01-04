@@ -1,5 +1,4 @@
-FROM php:5.6-fpm
-
+FROM php:5.6-apache
 MAINTAINER pierre@piwik.org
 
 RUN apt-get update && apt-get install -y \
@@ -41,4 +40,4 @@ RUN cd /usr/src/piwik/misc \
 COPY docker-entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["php-fpm"]
+CMD ["apache2-foreground"]
